@@ -13,7 +13,7 @@
            <h1 style=text align = "center">TAMGameCreator ゲームの部屋</h1>
          </header>
          <div class="contents">
-           <article>
+           <article id="article">
              <div class="text" style="background-color:cyan;">第四回(2024/06/10)</div>
              <h2>挨拶</h2>
              <div class="text">こんにちは。TAMです。</div>
@@ -71,12 +71,17 @@
            </div>
          </div>
          <script>
-                window.addEventListener('message', (e) => {
-    if (e.data.hasOwnProperty('iframeHeight')) { 
-        const iframe = document.getElementById('resizableIframe'); // resizableIframeはiframeのID名に置き換える
-        iframe.style.height = `${e.data.iframeHeight}px`;
-    }
-});
+         window.addEventListener('message', (e) => {
+           if (e.data.hasOwnProperty('iframeHeight')) {
+             const iframe = document.getElementById('resizableIframe'); // resizableIframeはiframeのID名に置き換える
+             if(document.getElementById('article').style.height < e.data.iframeHeight){
+               iframe.style.height = `${e.data.iframeHeight + 50}px`;
+             }
+             else{
+               iframe.style.height = document.getElementById('article').style.height;
+             }
+           }
+         });
          </script>
        </body>
 </html>
