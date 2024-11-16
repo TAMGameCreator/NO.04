@@ -70,5 +70,13 @@
              <a href="http://TAMGameCreator.github.io/NO.05" class="Line-Item">第五回</a>
            </div>
          </div>
+         <script>
+                window.addEventListener('message', (e) => {
+    if (e.data.hasOwnProperty('iframeHeight')) { 
+        const iframe = document.getElementById('resizableIframe'); // resizableIframeはiframeのID名に置き換える
+        iframe.style.height = `${e.data.iframeHeight}px`;
+    }
+});
+         </script>
        </body>
 </html>
